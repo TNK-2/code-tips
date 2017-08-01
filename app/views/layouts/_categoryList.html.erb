@@ -1,0 +1,10 @@
+<div class="uk-width-1-3">
+    <h2 class="contents-title2">Topics</h2>
+    <div class="topics uk-grid">
+        <% @categories.each do |category| %>
+            <div class="topic uk-width-1-2">
+                <%= link_to category.name, category_path(:name => category.name, :id => category.id), :method => :post %>
+            </div>
+        <% end %>
+    </div>
+</div>

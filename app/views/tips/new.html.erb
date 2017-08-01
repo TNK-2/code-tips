@@ -1,0 +1,29 @@
+<div class="uk-width-1-1 new-tip">
+    <h2 class="uk-width-1-1 new-tip-title">Make New Tip...</h2>
+    <div class="uk-width-1-1 new-tip-form">
+        <% @tip.errors.full_messages.each do |message| %>
+            <%= content_tag(:div, message, class: "uk-alert uk-alert-danger") %>
+        <% end %>
+
+        <%= form_for(@tip) do |f| %>
+            <div class="uk-margin-top">
+                <%= f.label :Title, class: 'yi-title' %><br>
+                <%= f.text_field :title, class: 'yi-input2' %>
+            </div>
+
+            <div class="uk-margin-top">
+                <%= f.label :Category, class: 'yi-title' %><br>
+                <%= f.collection_select(:category_id, @categories, :id, :name, {}, {:class => "yi-select"}) %>
+            </div>
+
+            <div class="uk-margin-top">
+                <%= f.label :source, class: 'yi-title' %><br>
+                <%= f.text_area :contents, {:size => "80x20" , class: 'yi-text-area'} %>
+            </div>
+
+            <%= f.hidden_field(:user_id, :value => @user.id) %>
+
+            <%= f.submit "POST NEW TIP", class: "uk-button uk-button-primary uk-button-large uk-margin-top" %>
+        <% end %>
+    </div>
+</div>

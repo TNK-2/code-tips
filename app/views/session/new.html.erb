@@ -1,0 +1,25 @@
+<div class="uk-width-1-2">
+    <h1>Little Tips For Developer</h1>
+</div>
+
+<div class="uk-width-1-2"> 
+    <div class="login-form">
+        <% flash.each do |message_type, message| %>
+            <%= content_tag(:div, message, class: "uk-alert uk-alert-#{message_type}") %>
+        <% end %>
+        <%= form_for(:session, url: login_path) do |f| %>
+
+        <div>
+            <%= f.label :name %><br>
+            <%= f.text_field :name, class: 'yi-input uk-margin-bottom' %>
+        </div>
+
+        <div>
+            <%= f.label :password %><br>
+            <%= f.password_field :password, class: 'yi-input uk-margin-bottom' %>
+        </div>
+
+        <%= f.submit "Log in", class: "uk-button uk-button-primary" %>
+        <% end %>
+    </div>
+</div>

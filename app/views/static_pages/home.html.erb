@@ -1,0 +1,25 @@
+<h4 class="uk-width-1-1 uk-margin-bottom">説明不要なプログラミングTips集</h4>
+<div class="uk-width-2-3">
+    <h2 class="contents-title">
+        <%= @categoryName %>
+    </h2>
+    <div class="tips-view">
+        <% @tips.each do |tip| %>
+            <div class="tip">
+                <div style="font-size:1.2em;"><%= link_to tip.title, tip_path(tip), class: "toTipContents" %></div>
+                <div>
+                    <%= link_to tip.category.name, category_path(:name => tip.category.name, :id => tip.category.id), :method => :post %>
+                    <%= link_to tip.user.name, user_path(:id => tip.user.id), :method => :get %>
+                    <span><%= tip.updated_at.strftime("%Y/%m/%d %H:%M") %></span>
+                </div>
+            </div>
+        <% end %>
+    </div>
+    <div class="prog-bar uk-width-1-1">
+        <%= link_to_prev_page @tips, 'BACK', class:'uk-align-left', :method => :post %>
+        <h><%= page_entries_info(@tips) %></h>
+        <%= link_to_next_page @tips, 'NEXT', class:'uk-align-right', :method => :post  %>
+    </div>
+</div>
+
+<%= render 'layouts/categoryList' %>

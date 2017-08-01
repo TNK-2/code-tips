@@ -1,0 +1,19 @@
+<div class="uk-width-1-1 user-view">
+    <h2 class="user-view-title uk-width-1-1">
+        <%= @user.name %>
+    </h2>
+    <div class="user-view-contents uk-width-1-1" >
+        <h3>Name : <%= @user.name %></h3>
+        <h3>Tips(<%= @tips.count %>)</h3>
+        <% @tips.each do |tip| %>
+            <div class="user-tip">
+                <div><%= link_to tip.title, tip_path(tip), class: "toTipContents" %></div>
+                <div>
+                    <%= link_to tip.category.name, category_path(:name => tip.category.name, :id => tip.category.id), :method => :post %>
+                    <%= link_to tip.user.name, user_path(:id => tip.user.id), :method => :get %>
+                    <span><%= tip.updated_at.strftime("%Y/%m/%d %H:%M") %></span>   
+                </div>
+            </div>
+        <% end %>
+    </div>
+</div>

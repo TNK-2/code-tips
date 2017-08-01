@@ -1,0 +1,226 @@
+@import "uikit-mixins";
+// <--- add here file with your mixins
+@import "uikit-variables";
+@import "uikit";
+@import "uikit-components";
+
+
+$skyblue : skyblue;
+$white : white;
+$whitesmoke : whitesmoke;
+$gray : gray;
+
+$bold : bold;
+
+
+/* header */
+.header {
+  background-color: $skyblue;
+  
+  #logo {
+      float: left;
+      margin: 20px 0 20px 20px;
+      font-size: 1.7em;
+      color: $white;
+      letter-spacing: -1px;
+      font-weight: $bold;
+  }
+}
+
+
+/* bady */
+html {
+  background: $whitesmoke;
+}
+
+.main-contents {
+  padding: 20px;
+
+  .tip-contents {
+    padding: 10px 15px 10px 15px;
+    min-height: 600px;
+    margin-right: 10px;
+    border-top-style: solid;
+    border-width: 3px;
+    border-color: $skyblue;
+    background: $white;
+  }
+  .contents-title {
+    margin-left: 0;
+    font-weight: $bold;
+  }
+  .contents-title2 {
+    margin-left: -24px;
+    font-weight: $bold;
+  }
+
+  .tips-view {
+    margin-right: 10px;
+    border-top-style: solid;
+    border-width: 3px;
+    border-color: $skyblue;
+    background: $white;
+    
+    .tip {
+      padding : 5px 0 5px 20px;
+      border-bottom-style: solid;
+      border-width: 3px;
+      border-color: $whitesmoke;
+      color: $gray;
+      font-size : 1.5em;
+      height : 48px;
+      
+      a {
+        font-size: 0.7em;
+      }
+
+      span {
+        font-size: 0.6em;
+        color: black;
+      }
+    }
+  }
+  .topics {
+  
+    .topic {
+      font-weight: $bold;
+      padding-top: 2px; 
+      border-style: solid;
+      border-width: 2px;
+      border-color: $whitesmoke;
+      background: $white;
+      height: 30px;
+    }
+  }
+  .yi-content-center{
+    margin: auto;
+    max-width: 800px;
+  }
+  .new-tip {
+    @extend .yi-content-center;
+    .new-tip-title {
+      @extend .contents-title;
+    }
+    .new-tip-form {
+      @extend .tip-contents;
+      min-height: 650px;
+      color:gray;
+    }    
+  }
+  .user-view {
+    @extend .yi-content-center;
+    .user-view-title {
+      @extend .contents-title;
+    }
+    .user-view-contents {
+      @extend .tip-contents;
+      padding: 30px 40px 30px 40px;
+      font-size: 120%;
+      min-height: 650px;
+      color:gray;
+    }
+  }
+}
+
+.tip-source {
+  padding: 5px;
+  background-color: $whitesmoke;
+  min-height: 250px;
+}
+
+.toTipContents {
+  color: gray;
+}
+ 
+.login-form {
+  position: relative;
+  left: 80px;
+  padding: 15px 20px 0 20px;
+  align-content: center;
+  border-style: solid;
+  border-color: pink;
+  border-width: 3px;
+  background-color: white;
+  height: 250px;
+  width: 300px;
+}
+
+.prog-bar{
+  padding-right: 10px;
+  text-align: center;
+  font-weight: $bold;
+}
+
+.user-tip {
+  padding : 5px 0 5px 20px;
+  border-bottom-style: solid;
+  border-width: 3px;
+  border-color: $whitesmoke;
+  color: $gray;
+  font-size : 1em;
+  height : 44px;
+  
+  a {
+    font-size: 0.9em;
+  }
+  span {
+    font-size: 0.8em;
+    color: black;
+  }
+}
+
+.footer {
+  margin: 0 20px 20px 20px;
+  padding:10px 0 0 0;
+  margin-right: 10px;
+  border-top-style: solid;
+  border-width: 1px;
+  border-color: $skyblue;
+}
+
+
+/** Custom element **/
+.yi-input {
+  border:0;
+  padding:10px;
+  font-size:1.3em;
+  font-family:Arial, sans-serif;
+  color:gray;
+  border:solid 1px;
+  margin:0 0 20px;
+  width:70%;
+}
+
+.yi-input2 {
+  border:0;
+  padding:10px;
+  font-size:1.3em;
+  font-family:Arial, sans-serif;
+  color:gray;
+  border:solid 1px;
+  margin:0 0 20px;
+  width:634px;
+}
+
+.yi-select {
+  margin:0 0 20px;
+  padding: 0 0 0 5px;
+  width:656px;
+  height: 45px;
+  font-size:1.3em;
+  font-family:Arial, sans-serif;
+  background-color:$white;
+  color:gray;
+  border:solid 1px;
+}
+
+.yi-text-area {
+  border:solid 1px;
+}
+
+.yi-title {
+  font-size: 1.7em;
+  color:gray;
+  margin-bottom: 20px;
+}
+
