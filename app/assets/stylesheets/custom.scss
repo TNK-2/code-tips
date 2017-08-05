@@ -25,6 +25,23 @@ $bold : bold;
       letter-spacing: -1px;
       font-weight: $bold;
   }
+
+  #login {
+      float: right;
+      margin: 5px 20px 5px 20px;
+      font-size: 1.2em;
+      letter-spacing: -1px;
+      border-radius: 5px;
+      font-weight: $bold;
+  }
+
+  #nav-toggle {
+      float: right;
+      margin: 10px 20px 10px 20px;
+      font-size: 1.7em;
+      letter-spacing: -1px;
+      font-weight: $bold;
+  }
 }
 
 
