@@ -10,12 +10,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170713003444) do
+ActiveRecord::Schema.define(version: 20170806044726) do
 
   create_table "categories", force: :cascade do |t|
     t.string   "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "relationships", force: :cascade do |t|
+    t.integer  "favourite_tip_id"
+    t.integer  "favouritter_id"
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
+    t.index ["favourite_tip_id", "favouritter_id"], name: "index_relationships_on_favourite_tip_id_and_favouritter_id", unique: true
+    t.index ["favourite_tip_id"], name: "index_relationships_on_favourite_tip_id"
+    t.index ["favouritter_id"], name: "index_relationships_on_favouritter_id"
   end
 
   create_table "tips", force: :cascade do |t|

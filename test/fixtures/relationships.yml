@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  favourite: MyString
+  favourite_tip_id: 1
+  favouritter_id: 1
+
+two:
+  favourite: MyString
+  favourite_tip_id: 1
+  favouritter_id: 1

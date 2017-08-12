@@ -14,7 +14,6 @@ class StaticPagesController < ApplicationController
         render 'home'
     end
 
-
     private
         def getBaseInfo
             @pageNumber = params[:page] || 1

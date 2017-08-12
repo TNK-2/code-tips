@@ -10,4 +10,15 @@ class MypageController < ApplicationController
         @count = buf.count
         @tips = Kaminari.paginate_array(buf).page(@pageNumber).per(10)
     end
+
+    def favourites
+        if !logged_in?
+            redirect_to '/login'
+        end
+        @pageNumber = params[:page] || 1
+        @user = current_user
+        buf = @user.favourite_tip
+        @count = buf.count
+        @tips = Kaminari.paginate_array(buf).page(@pageNumber).per(10)
+    end
 end
