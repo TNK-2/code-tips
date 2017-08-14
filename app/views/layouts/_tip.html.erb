@@ -1,0 +1,17 @@
+<% @tips.each do |tip| %>
+    <div class="tip" style="font-size:1.3em;">
+        <div><%= link_to tip.title, tip_path(tip), class: "toTipContents" %></div>
+        <div>
+            <%= link_to tip.category.name, category_path(:name => tip.category.name, :id => tip.category.id), :method => :post %>
+            <%= link_to tip.user.name, user_path(:id => tip.user.id), :method => :get %>
+            <span><%= tip.updated_at.strftime("%Y/%m/%d %H:%M") %></span>
+            <% if logged_in? %>
+                <% if current_user.favourite?(tip) %>
+                    <%= link_to "", relationship_path(:id => tip.id), :method => :DELETE, class: "uk-icon-justify uk-icon-star-o gold-star" %>
+                <% else %>
+                    <%= link_to "", relationships_path(:id => tip.id), :method => :post, class: "uk-icon-justify uk-icon-star-o silver-star" %>
+                <% end %>
+            <% end %>
+        </div>
+    </div>
+<% end %>

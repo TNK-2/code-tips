@@ -71,11 +71,14 @@ html {
     font-weight: $bold;
   }
 
-  .tips-view {
-    margin-right: 10px;
+  .top-blue {
     border-top-style: solid;
     border-width: 3px;
     border-color: $skyblue;
+  }
+
+  .tips-view {
+    margin-right: 10px;
     background: $white;
     
     .tip {

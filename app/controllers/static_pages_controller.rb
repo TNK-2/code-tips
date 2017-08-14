@@ -9,16 +9,9 @@ class StaticPagesController < ApplicationController
 
     def category
         @categoryName = params[:name]
-        buf = Tip.where(category_id: params[:id]).order("updated_at desc")
-        @tips = Kaminari.paginate_array(buf).page(@pageNumber).per(20)
+        pagenate(Tip.where(category_id: params[:id]).order("updated_at desc"), "post")
         render 'home'
     end
-
-    private
-        def getBaseInfo
-            @pageNumber = params[:page] || 1
-            @categories = Category.all
-        end
 
 
 end

@@ -5,23 +5,9 @@
     <div class="user-view-contents uk-width-1-1" >
         <h3>Name : <%= @user.name %></h3>
         <h3>Your Tips(<%= @count %>) <%= link_to "Make new Tip", new_tip_path ,:method => :get %></h3>
-        <% @tips.each do |tip| %>
-            <div class="user-tip">
-                <div>
-                    <%= link_to tip.title, tip_path(tip), class: "toTipContents" %>
-                    
-                </div>
-                <div>
-                    <%= link_to tip.category.name, category_path(:name => tip.category.name, :id => tip.category.id), :method => :post %>
-                    <%= link_to tip.user.name, user_path(:id => tip.user.id), :method => :get %>
-                    <span><%= tip.updated_at.strftime("%Y/%m/%d %H:%M") %></span>
-                </div>
-            </div>
-        <% end %>
+        <div class="tips-view">
+            <%= render 'layouts/tip' %>
+        </div>
     </div>
-    <div class="prog-bar uk-width-1-1">
-        <%= link_to_prev_page @tips, 'BACK', class:'uk-align-left', :method => :post %>
-        <h><%= page_entries_info(@tips) %></h>
-        <%= link_to_next_page @tips, 'NEXT', class:'uk-align-right', :method => :post  %>
-    </div>
+    <%= render 'layouts/pagenate' %>
 </div>

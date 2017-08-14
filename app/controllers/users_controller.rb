@@ -1,12 +1,14 @@
 class UsersController < ApplicationController
 
+    before_action :getBaseInfo2
+
     def new 
         @user = User.new
     end
 
     def show
         @user = User.find_by(id: params[:id])
-        @tips = Tip.where(user_id: @user.id).order("updated_at desc")
+        pagenate(Tip.where(user_id: @user.id).order("updated_at desc"), "get")
     end
 
     def create
