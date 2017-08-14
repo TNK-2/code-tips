@@ -124,6 +124,18 @@ html {
       color:gray;
     }    
   }
+  .new-user {
+    @extend .yi-content-center;
+    max-width: 600px;
+    .new-user-title {
+      @extend .contents-title;
+    }
+    .new-user-form {
+      @extend .tip-contents;
+      min-height: 300px;
+      color:gray;
+    }    
+  }
   .user-view {
     @extend .yi-content-center;
     .user-view-title {
@@ -140,6 +152,8 @@ html {
 }
 
 .tip-source {
+  overflow: auto;
+  white-space: pre;
   padding: 5px;
   background-color: $whitesmoke;
   min-height: 250px;
@@ -194,6 +208,23 @@ html {
   color: silver;
 }
 
+.comment-input {
+  border-bottom: skyblue; 
+  border-width:1px; 
+  border-bottom-style:solid; 
+  padding-bottom: 5px;
+}
+.comment-disp {
+  overflow: auto;
+  border-bottom: skyblue; 
+  border-width:1px; 
+  border-bottom-style:solid; 
+  padding: 5px;
+  .comment-contents {
+    white-space: pre;
+  }
+}
+
 .footer {
   margin: 0 20px 20px 20px;
   padding:10px 0 0 0;
@@ -240,6 +271,8 @@ html {
 }
 
 .yi-text-area {
+  overflow: auto;
+  white-space: pre;
   border:solid 1px;
 }
 

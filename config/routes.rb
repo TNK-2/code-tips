@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
 
 
+  get 'comments/create'
+
   root      'static_pages#home'
   post      '/',              to: 'static_pages#home'
   get       'category',       to: 'static_pages#category'
@@ -11,7 +13,9 @@ Rails.application.routes.draw do
   get       'mypage',         to: 'mypage#top'
   post      'mypage',         to: 'mypage#top'
   get       'favourites',     to: 'mypage#favourites'
+  post      'favourites',     to: 'mypage#favourites'
 
+  resources :comments
   resources :tips
   resources :users
   resources :relationships,  only: [:create, :destroy]

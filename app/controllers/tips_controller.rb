@@ -4,7 +4,9 @@ class TipsController < ApplicationController
 
     def show
         @tip = Tip.find(params[:id])
+        @current_user = current_user
         @user = User.find_by(id: @tip.user_id)
+        @comments = @tip.comments.order("updated_at desc")
     end
 
     def new
@@ -22,6 +24,26 @@ class TipsController < ApplicationController
             redirect_to @tip
         else
             render 'new'
+        end
+    end
+
+    def destroy
+        @tip = Tip.find(params[:id])
+        @tip.destroy
+        redirect_to root_path
+    end
+
+    def edit
+        @tip = Tip.find(params[:id])
+        render 'edit'
+    end
+
+    def update
+        @tip = Tip.find(params[:id])
+        if @tip.update(tip_params)
+            redirect_to tip_path
+        else
+            render 'edit'
         end
     end
 

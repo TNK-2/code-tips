@@ -3,6 +3,7 @@ class MypageController < ApplicationController
     def top
         if !logged_in?
             redirect_to '/login'
+            return
         end
         @pageNumber = params[:page] || 1
         @user = current_user
@@ -14,11 +15,13 @@ class MypageController < ApplicationController
     def favourites
         if !logged_in?
             redirect_to '/login'
+            return
         end
         @pageNumber = params[:page] || 1
         @user = current_user
-        buf = @user.favourite_tip
+        buf = @user.favourite_tip.order("updated_at desc")
         @count = buf.count
         @tips = Kaminari.paginate_array(buf).page(@pageNumber).per(10)
     end
+
 end
