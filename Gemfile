@@ -9,7 +9,6 @@ gem 'rails', '~> 5.0.4'
 
 gem 'uikit-rails'
 
-gem 'sqlite3'
 
 gem 'bcrypt',  '3.1.11'
 
@@ -30,6 +29,7 @@ gem 'turbolinks', '~> 5'
 gem 'jbuilder', '~> 2.5'
 
 group :development, :test do
+  gem 'sqlite3'
   gem 'byebug', platform: :mri
 end
 
