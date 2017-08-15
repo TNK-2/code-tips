@@ -1,6 +1,6 @@
 # code-tips
 
-* URL : 5.0.4
+* URL : https://guarded-sands-15265.herokuapp.com/
 
 * Ruby version  : 2.3.3
 

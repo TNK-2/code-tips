@@ -105,7 +105,7 @@ html {
     .topic {
       font-weight: $bold;
       padding-top: 2px; 
-      border-style: solid;
+      border-style: login-formsolid;
       border-width: 2px;
       border-color: $whitesmoke;
       background: $white;
@@ -175,7 +175,7 @@ html {
   border-color: pink;
   border-width: 3px;
   background-color: white;
-  height: 250px;
+  min-height: 250px;
   width: 300px;
 }
 
