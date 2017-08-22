@@ -1,0 +1,36 @@
+<div class="uk-width-1-1 user-view">
+    <h2 class="uk-width-1-1user-view-title">EDIT Your Profile...</h2>
+    <div class="user-view-contents uk-width-1-1" >
+        <% @user.errors.full_messages.each do |message| %>
+            <%= content_tag(:div, message, class: "uk-alert uk-alert-danger") %>
+        <% end %>
+
+        <%= form_for(@user) do |f| %>
+            <div class="uk-margin-top">
+                <%= f.label :name, class: 'yi-title' %><br>
+                <%= f.text_field :name, class: 'yi-input' %>
+            </div>
+
+            <div class="uk-margin-top">
+                <%= f.label :gitURL, class: 'yi-title' %><br>
+                <%= f.text_field :giturl, class: 'yi-input' %>
+            </div>
+
+            <div class="uk-margin-top">
+                <%= f.label :password, class: 'yi-title' %><br>
+                <%= f.password_field :password, class: 'yi-input uk-margin-bottom' %>
+            </div>
+
+            <div class="uk-margin-top">
+                <%= f.label :password_confirmation, class: 'yi-title' %><br>
+                <%= f.password_field :password_confirmation, class: 'yi-input uk-margin-bottom' %>
+            </div>
+
+
+
+            <%= f.hidden_field(:id, :value => @user.id) %>
+
+            <%= f.submit "UPDATE PROFILE", class: "uk-button uk-button-primary uk-button-large uk-margin-top" %>
+        <% end %>
+    </div>
+</div>
