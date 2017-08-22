@@ -1,6 +1,7 @@
 class MypageController < ApplicationController
 
     before_action :getBaseInfo2
+    before_action :login_chk
 
     def top
         pagenate(Tip.where(user_id: @user.id).order("updated_at desc"), "post")
@@ -10,11 +11,4 @@ class MypageController < ApplicationController
         pagenate(@user.favourite_tip.order("updated_at desc"), "post")
     end
 
-    private
-        def login_chk
-            if !logged_in?
-                redirect_to '/login'
-                return
-            end
-        end
 end

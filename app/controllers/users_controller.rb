@@ -16,16 +16,13 @@ class UsersController < ApplicationController
 
 
     def edit
+        login_chk
         @user = User.find_by(id: params[:id])
     end
 
 
     def update
-        puts user_params[:id]
-        puts user_params[:name]
-        puts user_params[:password]
-        puts user_params[:giturl]
-
+        login_chk
         @user = User.find(params[:id])
         if @user.update_attributes(user_params)
             redirect_to mypage_path
@@ -47,6 +44,7 @@ class UsersController < ApplicationController
 
 
     def destroy
+        login_chk
         User.find(params[:id]).destroy
         log_out
         redirect_to root_url

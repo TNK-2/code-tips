@@ -28,17 +28,20 @@ class TipsController < ApplicationController
     end
 
     def destroy
+        login_chk
         @tip = Tip.find(params[:id])
         @tip.destroy
         redirect_to root_path
     end
 
     def edit
+        login_chk
         @tip = Tip.find(params[:id])
         render 'edit'
     end
 
     def update
+        login_chk
         @tip = Tip.find(params[:id])
         if @tip.update(tip_params)
             redirect_to tip_path
