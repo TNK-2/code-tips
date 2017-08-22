@@ -22,6 +22,7 @@ class ApplicationController < ActionController::Base
     def login_chk
         if !logged_in?
             redirect_to '/login'
+            return false
         end
     end
 

@@ -16,13 +16,13 @@ class UsersController < ApplicationController
 
 
     def edit
-        login_chk
+        login_chk ? nil : return
         @user = User.find_by(id: params[:id])
     end
 
 
     def update
-        login_chk
+        login_chk ? nil : return
         @user = User.find(params[:id])
         if @user.update_attributes(user_params)
             redirect_to mypage_path
@@ -44,7 +44,7 @@ class UsersController < ApplicationController
 
 
     def destroy
-        login_chk
+        login_chk ? nil : return
         User.find(params[:id]).destroy
         log_out
         redirect_to root_url

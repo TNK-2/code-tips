@@ -1,7 +1,7 @@
 class CommentsController < ApplicationController
   
   def create
-      login_chk
+      login_chk ? nil : return
       @comment = Comment.new(comment_params)
       if @comment.save
         redirect_to @tip
@@ -11,7 +11,7 @@ class CommentsController < ApplicationController
   end
 
   def destroy
-      login_chk
+      login_chk ? nil : return
       @comment = Comment.find(params[:id])
       @comment.destroy
       redirect_to request.referer
