@@ -11,7 +11,7 @@
                 <% else %>
                     <%= link_to "", relationships_path(:id => @tip.id), :method => :post, class: "uk-icon-justify uk-icon-star-o silver-star" %>
                 <% end %>
-                <% if @tip.writer?(@current_user.id) %>
+                <% if @tip.writer?(@current_user.id) || @current_user.admin? %>
                     <%= link_to "", tip_path(:id => @tip.id), :method => :DELETE, class: "uk-align-right uk-icon-medium uk-icon-trash", data: {confirm: "本当に削除しますか？"} %>
                     <%= link_to "", edit_tip_path(:id => @tip.id), :method => :GET, class: "uk-align-right uk-icon-medium uk-icon-edit" %>
                 <% end %>
@@ -35,7 +35,7 @@
             <div class="comment-disp">
                 <div>
                     <%= link_to comment.user.name, user_path(:id => comment.user.id), :method => :get %>
-                    <% if logged_in? && comment.commenter?(@current_user.id) %>
+                    <% if logged_in? && (comment.commenter?(@current_user.id) || @current_user.admin? ) %>
                         <%= link_to "削除", comment_path(:id => comment.id), :method => :DELETE %>
                     <% end %>
                 </div>

@@ -3,10 +3,22 @@
         My Page : <%= @user.name %>
     </h2>
     <div class="user-view-contents uk-width-1-1" >
-        <h3>Name : <%= @user.name %></h3>
+        <h3>
+            Name : <%= @user.name %>
+            <span><%= link_to "", edit_user_path(:id => @user.id), :method => :GET, class: "uk-align-right uk-icon-medium uk-icon-edit" %></span>
+        </h3>
+        <h3>
+            Git-URL : 
+            <% if @user.giturl %>
+                <%= link_to @user.giturl, @user.giturl %>
+            <% end %>
+        </h3>
         <h3>Your Tips(<%= @count %>) <%= link_to "Make new Tip", new_tip_path ,:method => :get %></h3>
         <div class="tips-view">
             <%= render 'layouts/tip' %>
+        </div>
+        <div>
+            <p class="uk-margin-top" style="color:red; font-size: 0.9em;" >Danger!!:<%= link_to "アカウント削除", @user, method: :delete, data:{ confirm: "一度削除するともとに戻せません。削除しますか？" } %></p>
         </div>
     </div>
     <%= render 'layouts/pagenate' %>

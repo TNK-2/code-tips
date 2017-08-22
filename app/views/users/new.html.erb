@@ -3,13 +3,18 @@
     <div class="uk-width-1-1 new-user-form">
         <%= form_for(@user, url: users_path) do |f| %>
             <div class="uk-margin-top">
-                <%= f.label :UserName, class: 'yi-title' %><br>
+                <%= f.label :name, class: 'yi-title' %><br>
                 <%= f.text_field :name, class: 'yi-input' %>
             </div>
 
             <div class="uk-margin-top">
-                <%= f.label :Password, class: 'yi-title' %><br>
+                <%= f.label :password, class: 'yi-title' %><br>
                 <%= f.password_field :password, class: 'yi-input uk-margin-bottom' %>
+            </div>
+
+            <div class="uk-margin-top">
+                <%= f.label :password_confirmation, class: 'yi-title' %><br>
+                <%= f.password_field :password_confirmation, class: 'yi-input uk-margin-bottom' %>
             </div>
 
             <%= f.submit "Create New User!", class: "uk-button uk-button-primary uk-button-large uk-margin-top", :method => :GET %>

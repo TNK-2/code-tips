@@ -4,6 +4,13 @@
     </h2>
     <div class="user-view-contents uk-width-1-1" >
         <h3>Name : <%= @user.name %></h3>
+        <h3>
+            Git-URL : 
+            <% if @user.giturl %>
+                <%= link_to @user.giturl, @user.giturl %>
+            <% end %>
+        </h3>
+
         <h3>Tips(<%= @count %>)</h3>
         <div class="tips-view">
             <%= render 'layouts/tip' %>

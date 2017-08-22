@@ -1,15 +1,39 @@
 class UsersController < ApplicationController
 
+
     before_action :getBaseInfo2
+
 
     def new 
         @user = User.new
     end
 
+
     def show
         @user = User.find_by(id: params[:id])
         pagenate(Tip.where(user_id: @user.id).order("updated_at desc"), "get")
     end
+
+
+    def edit
+        @user = User.find_by(id: params[:id])
+    end
+
+
+    def update
+        puts user_params[:id]
+        puts user_params[:name]
+        puts user_params[:password]
+        puts user_params[:giturl]
+
+        @user = User.find(params[:id])
+        if @user.update_attributes(user_params)
+            redirect_to mypage_path
+        else
+            render 'edit'
+        end
+    end
+
 
     def create
         @user = User.new(user_params)
@@ -21,9 +45,17 @@ class UsersController < ApplicationController
         end
     end
 
+
+    def destroy
+        User.find(params[:id]).destroy
+        log_out
+        redirect_to root_url
+    end
+
+
     private
         def user_params
-            params.require(:user).permit(:name, :password)
+            params.require(:user).permit(:id, :name, :password, :giturl)
         end
 
 end
