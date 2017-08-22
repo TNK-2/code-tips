@@ -16,17 +16,23 @@ class UsersController < ApplicationController
 
 
     def edit
-        login_chk ? nil : return
+        if !login_chk 
+            return
+        end
         @user = User.find_by(id: params[:id])
     end
 
 
     def update
-        login_chk ? nil : return
+        if !login_chk 
+            return
+        end
         @user = User.find(params[:id])
         if @user.update_attributes(user_params)
+            puts "OK"
             redirect_to mypage_path
         else
+            puts "NG"
             render 'edit'
         end
     end
@@ -44,7 +50,9 @@ class UsersController < ApplicationController
 
 
     def destroy
-        login_chk ? nil : return
+        if !login_chk 
+            return
+        end
         User.find(params[:id]).destroy
         log_out
         redirect_to root_url
@@ -53,7 +61,7 @@ class UsersController < ApplicationController
 
     private
         def user_params
-            params.require(:user).permit(:id, :name, :password, :giturl)
+            params.require(:user).permit(:id, :name, :password, :password_confirmation, :giturl)
         end
 
 end

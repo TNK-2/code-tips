@@ -24,6 +24,7 @@ class ApplicationController < ActionController::Base
             redirect_to '/login'
             return false
         end
+        return true
     end
 
 
